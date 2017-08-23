@@ -17,40 +17,41 @@
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <EditText
-        android:id="@+id/etNewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter a new Item"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="457dp"
-        android:layout_marginBottom="14dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnAdddItem"
-        android:layout_alignLeft="@+id/lvItems"
-        android:layout_alignStart="@+id/lvItems" />
-
     <ListView
         android:id="@+id/lvItems"
         android:layout_width="369dp"
         android:layout_height="447dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
+
+    <EditText
+        android:id="@+id/etNewItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lvItems"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/lvItems"
+        android:layout_marginBottom="14dp"
+        android:layout_toLeftOf="@+id/btnAdddItem"
+        android:background="#AAFFFFFF"
+        android:ems="10"
+        android:hint="Enter a new Item"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="457dp" />
 
     <Button
         android:id="@+id/btnAdddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/lvItems"
-        android:layout_alignRight="@+id/lvItems"
-        android:layout_alignTop="@+id/etNewItem"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:onClick="onAddItem"
-        android:text="Add Item" />
+        android:text="Add Item"
+        android:layout_alignBaseline="@+id/etNewItem"
+        android:layout_alignBottom="@+id/etNewItem"
+        android:layout_alignRight="@+id/lvItems"
+        android:layout_alignEnd="@+id/lvItems" />
 
 </RelativeLayout>
