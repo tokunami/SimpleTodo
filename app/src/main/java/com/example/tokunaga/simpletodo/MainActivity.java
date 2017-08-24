@@ -83,7 +83,11 @@ public class MainActivity extends AppCompatActivity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<>();
         readItems();
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        itemsAdapter = new ItemsAdapter(getApplicationContext());
+        for (int i=0; i< items.size(); i++){
+            itemsAdapter.add(items.get(i));
+        }
+
         lvItems.setAdapter(itemsAdapter);
         setupListViewListener();
     }
