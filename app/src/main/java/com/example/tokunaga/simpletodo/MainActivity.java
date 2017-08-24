@@ -2,6 +2,7 @@ package com.example.tokunaga.simpletodo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends AppCompatActivity implements AddItemDialogFragment.EditNameDialogListener {
     ArrayList<String> items;
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
@@ -113,6 +115,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showEditDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        AddItemDialogFragment addItemDialogFragment = AddItemDialogFragment.newInstance("Some Title");
+//        addItemDialogFragment.show(fm, "tag");
     }
 
 }
