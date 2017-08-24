@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapter, View item, int pos, long id) {
                 items.remove(pos);
-                itemsAdapter.notifyDataSetChanged();
                 writeItems();
+                loadList();
                 return true;
             }
         });
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         String itemText = etNewItem.getText().toString();
         if (itemText != null && !itemText.isEmpty()) {
             itemsAdapter.add(itemText);
+            items.add(itemText);
             etNewItem.setText("");
             writeItems();
         } else {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         items = new ArrayList<>();
         readItems();
         itemsAdapter = new ItemsAdapter(getApplicationContext());
-        for (int i=0; i< items.size(); i++){
+        for (int i=0; i<items.size(); i++){
             itemsAdapter.add(items.get(i));
         }
 
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         File todoFile = new File(filesDir, "todo.txt");
         try {
             items = new ArrayList<String>(FileUtils.readLines(todoFile));
+//            Log.d("Main_item_from_read", items.toString());
         } catch (IOException e) {
             items = new ArrayList<String>();
         }
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         File todoFile = new File(filesDir, "todo.txt");
         try {
             FileUtils.writeLines(todoFile, items);
+//            Log.d("Main_item_write", items.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
